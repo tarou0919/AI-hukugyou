@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI副業で使える無料ツール一覧 | AI副業マガジン</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f0e8;
+  --ink: #0d0d0d;
+  --accent: #c8410a;
+  --muted: #6b6456;
+  --rule: #c9bfad;
+  --highlight: #f0e060;
+  --green: #1a6b3a;
+  --card: #ffffff;
+  --border: #0d0d0d;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--ink); font-family: 'Noto Sans JP', sans-serif; line-height: 1.8; overflow-x: hidden; }
+
+.site-header { border-top: 6px solid var(--ink); border-bottom: 3px double var(--ink); padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.site-name { font-family: 'Noto Serif JP', serif; font-weight: 900; font-size: 13px; letter-spacing: 0.3em; color: var(--muted); }
+.back-link { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--accent); text-decoration: none; letter-spacing: 0.08em; border: 1px solid var(--accent); padding: 6px 14px; transition: all 0.2s; }
+.back-link:hover { background: var(--accent); color: #fff; }
+
+.hero { max-width: 960px; margin: 0 auto; padding: 60px 40px 32px; }
+.kicker { display: inline-block; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--green); border: 1.5px solid var(--green); padding: 3px 10px; margin-bottom: 20px; }
+h1 { font-family: 'Noto Serif JP', serif; font-weight: 900; font-size: clamp(32px, 5vw, 56px); line-height: 1.2; margin-bottom: 16px; }
+h1 em { color: var(--green); font-style: normal; position: relative; }
+h1 em::after { content: ''; position: absolute; bottom: 2px; left: 0; right: 0; height: 6px; background: var(--highlight); z-index: -1; }
+.hero-desc { font-family: 'Noto Serif JP', serif; font-size: 17px; color: var(--muted); max-width: 600px; margin-bottom: 24px; }
+.hero-note { display: inline-flex; align-items: center; gap: 10px; background: #e8f5ee; border: 1px solid #a8d5bc; padding: 10px 18px; font-size: 13px; color: var(--green); font-weight: 500; }
+
+.filter-bar { max-width: 960px; margin: 0 auto; padding: 28px 40px; display: flex; gap: 10px; flex-wrap: wrap; }
+.filter-btn { font-family: 'Space Mono', monospace; font-size: 11px; padding: 6px 16px; letter-spacing: 0.08em; border: 1.5px solid var(--rule); background: transparent; cursor: pointer; transition: all 0.2s; color: var(--muted); }
+.filter-btn:hover, .filter-btn.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+.tools-grid { max-width: 960px; margin: 0 auto; padding: 0 40px 80px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+
+.tool-card { background: var(--card); border: 1.5px solid var(--border); display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; }
+.tool-card:hover { transform: translate(-4px,-4px); box-shadow: 6px 6px 0 var(--ink); }
+.card-top { padding: 22px 22px 16px; flex: 1; }
+.card-category { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 12px; text-transform: uppercase; }
+.card-icon-name { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.card-icon { font-size: 30px; }
+.card-name { font-family: 'Noto Serif JP', serif; font-weight: 900; font-size: 20px; }
+.free-badge { display: inline-block; font-family: 'Space Mono', monospace; font-size: 10px; padding: 3px 10px; background: #e8f5ee; border: 1px solid #a8d5bc; color: var(--green); letter-spacing: 0.08em; margin-bottom: 12px; }
+.card-desc { font-size: 14px; color: #444; line-height: 1.75; margin-bottom: 14px; }
+.card-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.tag { font-family: 'Space Mono', monospace; font-size: 10px; padding: 2px 8px; background: var(--bg); border: 1px solid var(--rule); color: var(--muted); }
+.card-bottom { border-top: 1.5px solid var(--border); padding: 14px 22px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.card-plan { font-size: 12px; color: var(--muted); }
+.card-plan strong { color: var(--green); }
+.card-link { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); white-space: nowrap; }
+.card-link:hover { color: #a03008; }
+
+.bottom-cta { background: var(--ink); color: var(--bg); padding: 56px 40px; text-align: center; }
+.bottom-cta h2 { font-family: 'Noto Serif JP', serif; font-size: clamp(22px,4vw,36px); font-weight: 900; margin-bottom: 14px; }
+.bottom-cta p { font-size: 15px; color: #aaa; max-width: 480px; margin: 0 auto 28px; }
+.cta-btn { display: inline-block; background: var(--accent); color: #fff; font-family: 'Space Mono', monospace; font-size: 13px; padding: 14px 36px; text-decoration: none; letter-spacing: 0.08em; transition: background 0.2s; }
+.cta-btn:hover { background: #a83509; }
+
+footer { background: #1a1a1a; color: #aaa; padding: 48px 40px 32px; }
+.footer-inner { max-width: 880px; margin: 0 auto; }
+.footer-top { border-bottom: 1px solid #333; padding-bottom: 32px; margin-bottom: 28px; display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; }
+.f-label { font-size: 11px; letter-spacing: 0.15em; color: #666; margin-bottom: 10px; font-family: monospace; }
+.f-name { font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.f-role { font-size: 13px; color: #888; }
+.x-btn { display: inline-flex; align-items: center; gap: 8px; background: #000; border: 1px solid #333; color: #fff; font-size: 13px; padding: 8px 16px; text-decoration: none; margin-top: 14px; }
+.f-links { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.f-links a { color: #aaa; text-decoration: none; font-size: 13px; }
+.f-links a:hover { color: #fff; }
+.footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.copyright { font-size: 12px; color: #555; }
+.f-note { font-size: 11px; color: #444; font-family: monospace; }
+
+@media (max-width: 600px) { .site-header, .hero, .filter-bar, .tools-grid, .bottom-cta, footer { padding-left: 20px; padding-right: 20px; } .tools-grid { grid-template-columns: 1fr; } }
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+.hero { animation: fadeUp 0.6s ease both; }
+.tools-grid { animation: fadeUp 0.6s ease 0.15s both; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <span class="site-name">AI副業マガジン</span>
+  <a href="ai_fukugyou_article.html" class="back-link">← メイン記事に戻る</a>
+</header>
+
+<section class="hero">
+  <span class="kicker">FREE TOOLS</span>
+  <h1>AI副業で使える<br><em>無料ツール</em>一覧</h1>
+  <p class="hero-desc">今すぐ登録して使い始められる無料ツールを厳選。初期費用ゼロで副業をスタートできます。</p>
+  <span class="hero-note">✅ すべて無料プランあり・今すぐ始められます</span>
+</section>
+
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filterCards('all',this)">すべて</button>
+  <button class="filter-btn" onclick="filterCards('文章',this)">✍️ 文章生成</button>
+  <button class="filter-btn" onclick="filterCards('画像',this)">🎨 画像生成</button>
+  <button class="filter-btn" onclick="filterCards('動画',this)">🎬 動画・音声</button>
+  <button class="filter-btn" onclick="filterCards('翻訳',this)">🌍 翻訳</button>
+  <button class="filter-btn" onclick="filterCards('自動化',this)">⚙️ 自動化</button>
+  <button class="filter-btn" onclick="filterCards('調査',this)">🔍 リサーチ</button>
+</div>
+
+<div class="tools-grid">
+
+  <div class="tool-card" data-category="文章">
+    <div class="card-top">
+      <div class="card-category">✍️ 文章生成 / チャットAI</div>
+      <div class="card-icon-name"><span class="card-icon">🤖</span><span class="card-name">ChatGPT</span></div>
+      <span class="free-badge">FREE プランあり</span>
+      <p class="card-desc">OpenAI開発の世界最大AIチャット。文章生成・アイデア出し・コード作成・データ分析まで何でもこなす万能ツール。副業の第一歩はここから。</p>
+      <div class="card-tags"><span class="tag">ライティング</span><span class="tag">アイデア出し</span><span class="tag">コード生成</span><span class="tag">要約</span></div>
+    </div>
+    <div class="card-bottom">
+      <span class="card-plan">無料：<strong>GPT-4o mini利用可</strong></span>
+      <a href="https://chat.openai.com" target="_blank" rel="noopener" class="card-link">公式サイト →</a>
+    </div>
+  </div>
+
+  <div class="tool-card" data-category="文章">
+    <div class="card-top">
+      <div class="card-category">✍️ 文章生成 / チャットAI</div>
+      <div class="card-icon-name"><span class="card-icon">💬</span><span class="card-name">Claude</span></div>
+      <span class="free-badge">FREE プランあり</span>
+      <p class="card-desc">Anthropic開発のAI。長文の品質・自然なニュアンスが非常に高い。ブログ記事・メルマガ・レポート作成に特に強く、編集業務にも最適。</p>
+      <div class="card-tags"><span class="tag">長文ライティング</span><span class="tag">分析</span><span class="tag">要約</span><span class="tag">編集</span></div>
+    </div>
+    <div class="card-bottom">
+      <span class="card-plan">無料：<strong>Claude Sonnet利用可</strong></span>
+      <a href="https://claude.ai" target="_blank" rel="noopener" class="card-link">公式サイト →</a>
+    </div>
+  </div>
+
+  <div class="tool-card" data-category="調査">
+    <div class="card-top">
+      <div class="card-category">🔍 調査・リサーチ</div>
+      <div class="card-icon-name"><span class="card-icon">🔍</span><span class="card-name">Perplexity AI</span></div>
+      <span class="free-badge">FREE プランあり</span>
+      <p class="card-desc">リアルタイムWeb検索＋AIの組み合わせ。最新情報・トレンド・競合調査が数秒で完了。情報収集の時間を90%以上削減できる必須ツール。</p>
+      <div class="card-tags"><span class="tag">リサーチ</span><span class="tag">最新情報</span><span class="tag">トレンド調査</span></div>
+    </div>
+    <div class="card-bottom">
+      <span class="card-plan">無料：<strong>1日5回高精度検索可</strong></span>
+      <a href="https://www.perplexity.ai" target="_blank" rel="noopener" class="card-link">公式サイト →</a>
+    </div>
+  </div>
+
+  <div class="tool-card" data-category="画像">
+    <div class="card-top">
+      <div class="card-category">🎨 画像生成 / デザイン</div>
+      <div class="card-icon-name"><span class="card-icon">🎨</span><span class="card-name">Canva AI</span></div>
+      <span class="free-badge">FREE プランあり</span>
+      <p class="card-desc">デザイン初心者でもプロ品質のSNS投稿・バナー・サムネイルが作れる。AI画像生成・背景削除・テキスト生成もすべて内蔵。</p>
+      <div class="card-tags"><span class="tag">SNS素材</span><span class="tag">バナー</span><span class="tag">プレゼン</span><span class="tag">ロゴ</span></div>
+    </div>
+    <div class="card-bottom">
+      <span class="card-plan">無料：<strong>テンプレート・AI機能一部可</strong></span>
+      <a href="https://www.canva.com" target="_blank" rel="noopener" class="card-link">公式サイト →</a>
+    </div>
+  </div>
+
+  <div class="tool-card" data-category="画像">
+    <div class="card-top">
+      <div class="card-category">🎨 画像生成</div>
+      <div class="card-icon-name"><span class="card-icon">🔥</span><span class="card-name">Adobe Firefly</span></div>
+      <span class="free-badge">FREE プランあり</span>
+      <p class="card-desc">Adobeの商用利用に強いAI画像生成ツール。著作権をクリアした学習データで安心して商業案件に使える。Photoshopとの連携も強力。</p>
+      <div class="card-tags"><span class="tag">商用利用OK</span><span class="tag">高品質</span><span class="tag">Photoshop連携</span></div>
+    </div>
+    <div class="card-bottom">
+      <span class="card-plan">無料：<strong>月25クレジット</strong></span>
+      <a href="https://firefly.adobe.com" target="_blank" rel="noopener" class="card-link">公式サイト →</a>
+    </div>
+  </div>
+
+  <div class="tool-card" data-category="動画">
+    <div class="card-top">
+      <div class="card-category">🎬 動画編集</div>
+      <div class="card-icon-name"><span class="card-icon">🎬</span><span class="card-name">CapCut</span></div>
+      <span class="free-badge">ほぼ完全無料</span>
+      <p class="card-desc">TikTok・YouTube Shorts向け動画編集アプリ。AI自動字幕・翻訳・BGM生成・エフェクトが無料。スマホだけでプロ品質の動画が完成。</p>
+      <div class="card-tags"><span class="tag">動画編集</span><span class="tag">自動字幕</span><span class="tag">SNS動画</span><span class="tag">スマホ対応</span></div>
+    </div>
+    <div class="card-bottom">
+      <span class="card-plan">無料：<strong>ほぼ全機能が無料</strong></span>
+      <a href="https://www.capcut.com" target="_blank" rel="noopener" class="card-link">公式サイト →</a>
+    </div>
+  </div>
+
+  <div class="tool-card" data-category="動画">
+    <div class="card-top">
+      <div class="card-category">🎙️ 音声生成</div>
+      <div class="card-icon-name"><span class="card-icon">🎙️</span><span class="card-name">ElevenLabs</span></div>
+      <span class="free-badge">FREE プランあり</span>
+      <p class="card-desc">最高品質のAI音声合成ツール。自分の声をクローン化したり、プロのナレーターのような音声を自動生成。企業向けナレーション案件に直結。</p>
+      <div class="card-tags"><span class="tag">音声合成</span><span class="tag">ナレーション</span><span class="tag">声クローン</span><span class="tag">多言語</span></div>
+    </div>
+    <div class="card-bottom">
+      <span class="card-plan">無料：<strong>月10,000文字まで生成可</strong></span>
+      <a href="https://elevenlabs.io" target="_blank" rel="noopener" class="card-link">公式サイト →</a>
+    </div>
+  </div>
+
+  <div class="tool-card" data-category="翻訳">
+    <div class="card-top">
+      <div class="card-category">🌍 翻訳</div>
+      <div class="card-icon-name"><span class="card-icon">🌍</span><span class="card-name">DeepL</span></div>
+      <span class="free-badge">FREE プランあり</span>
+      <p class="card-desc">精度No.1のAI翻訳ツール。自然なニュアンスを保ちながら高速翻訳。AI翻訳副業の下訳として、多言語コンテンツ作成に欠かせない存在。</p>
+      <div class="card-tags"><span class="tag">高精度翻訳</span><span class="tag">多言語</span><span class="tag">ビジネス文書</span></div>
+    </div>
+    <div class="card-bottom">
+      <span class="card-plan">無料：<strong>1回500文字まで翻訳可</strong></span>
+      <a href="https://www.deepl.com" target="_blank" rel="noopener" class="card-link">公式サイト →</a>
+    </div>
+  </div>
+
+  <div class="tool-card" data-category="自動化">
+    <div class="card-top">
+      <div class="card-category">⚙️ AI自動化 / チャットボット</div>
+      <div class="card-icon-name"><span class="card-icon">⚙️</span><span class="card-name">Dify</span></div>
+      <span class="free-badge">FREE プランあり</span>
+      <p class="card-desc">ノーコードでAIチャットボット・ワークフローを構築できるツール。自社データを学習させたカスタムボットが数時間で完成。高単価案件に直結。</p>
+      <div class="card-tags"><span class="tag">ノーコード</span><span class="tag">チャットボット</span><span class="tag">自動化</span><span class="tag">RAG</span></div>
+    </div>
+    <div class="card-bottom">
+      <span class="card-plan">無料：<strong>月200メッセージまで</strong></span>
+      <a href="https://dify.ai" target="_blank" rel="noopener" class="card-link">公式サイト →</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="bottom-cta">
+  <h2>まず今日、1つ登録してみよう</h2>
+  <p>完璧に使いこなしてから始める必要はありません。登録して触れるだけで十分です。</p>
+  <a href="ai_fukugyou_article.html" class="cta-btn">副業の始め方を読む →</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="f-label">AUTHOR</div>
+        <div class="f-name">りょうま</div>
+        <div class="f-role">AI副業マガジン 編集・運営</div>
+        <a href="https://x.com/AI3488276633404" target="_blank" rel="noopener" class="x-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @AI3488276633404
+        </a>
+      </div>
+      <div>
+        <div class="f-label">REFERENCES</div>
+        <ul class="f-links">
+          <li><a href="https://crowdworks.jp" target="_blank" rel="noopener">▸ クラウドワークス</a></li>
+          <li><a href="https://www.lancers.jp" target="_blank" rel="noopener">▸ ランサーズ</a></li>
+          <li><a href="https://coconala.com" target="_blank" rel="noopener">▸ ココナラ</a></li>
+          <li><a href="https://note.com" target="_blank" rel="noopener">▸ note</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="f-label">OFFICIAL TOOLS</div>
+        <ul class="f-links">
+          <li><a href="https://chat.openai.com" target="_blank" rel="noopener">▸ ChatGPT</a></li>
+          <li><a href="https://claude.ai" target="_blank" rel="noopener">▸ Claude</a></li>
+          <li><a href="https://www.midjourney.com" target="_blank" rel="noopener">▸ Midjourney</a></li>
+          <li><a href="https://elevenlabs.io" target="_blank" rel="noopener">▸ ElevenLabs</a></li>
+          <li><a href="https://www.deepl.com" target="_blank" rel="noopener">▸ DeepL</a></li>
+          <li><a href="https://dify.ai" target="_blank" rel="noopener">▸ Dify</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="copyright">© 2025 りょうま / AI副業マガジン. All rights reserved.</div>
+      <div class="f-note">本記事はAIツールを活用して作成しています</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function filterCards(category, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.tool-card').forEach(card => {
+    card.style.display = (category === 'all' || card.dataset.category === category) ? 'flex' : 'none';
+  });
+}
+</script>
+</body>
+</html>
