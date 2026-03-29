@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIチャットボット構築副業 完全ガイド</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f8f9fc;
+  --ink: #111827;
+  --accent: #2563eb;
+  --accent2: #7c3aed;
+  --success: #059669;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --card: #ffffff;
+  --code-bg: #1e293b;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--ink); font-family: 'Noto Sans JP', sans-serif; line-height: 1.8; overflow-x: hidden; }
+
+/* TOP BAR */
+.topbar { background: var(--accent); padding: 12px 48px; display: flex; justify-content: space-between; align-items: center; }
+.topbar-left { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: rgba(255,255,255,0.8); letter-spacing: 0.1em; }
+.back-link { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #fff; text-decoration: none; letter-spacing: 0.08em; transition: opacity 0.2s; }
+.back-link:hover { opacity: 0.7; }
+
+/* HERO */
+.hero {
+  background: var(--ink);
+  color: #f9fafb;
+  padding: 72px 48px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle at top right, rgba(37,99,235,0.25), transparent 70%);
+  pointer-events: none;
+}
+.terminal {
+  background: var(--code-bg);
+  border-radius: 8px;
+  padding: 16px 20px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  color: #94a3b8;
+  margin-bottom: 32px;
+  max-width: 480px;
+  position: relative;
+}
+.terminal::before { content: '● ● ●'; color: #475569; font-size: 10px; display: block; margin-bottom: 10px; letter-spacing: 4px; }
+.terminal .cmd { color: #7dd3fc; }
+.terminal .out { color: #86efac; }
+h1 { font-family: 'Noto Serif JP', serif; font-weight: 900; font-size: clamp(32px, 6vw, 64px); line-height: 1.15; margin-bottom: 20px; max-width: 700px; position: relative; }
+h1 em { color: #60a5fa; font-style: normal; }
+.hero-sub { font-size: 16px; color: #9ca3af; max-width: 520px; margin-bottom: 40px; position: relative; }
+.chip-row { display: flex; gap: 10px; flex-wrap: wrap; position: relative; }
+.chip { font-family: 'IBM Plex Mono', monospace; font-size: 11px; padding: 5px 14px; border-radius: 100px; letter-spacing: 0.06em; }
+.chip-blue { background: rgba(37,99,235,0.2); color: #93c5fd; border: 1px solid rgba(37,99,235,0.4); }
+.chip-purple { background: rgba(124,58,237,0.2); color: #c4b5fd; border: 1px solid rgba(124,58,237,0.4); }
+.chip-green { background: rgba(5,150,105,0.2); color: #6ee7b7; border: 1px solid rgba(5,150,105,0.4); }
+
+/* CONTENT */
+.content { max-width: 880px; margin: 0 auto; padding: 72px 48px; }
+section { margin-bottom: 72px; }
+.sec-tag { display: inline-flex; align-items: center; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+.sec-tag::before { content: '//'; opacity: 0.5; }
+h2 { font-family: 'Noto Serif JP', serif; font-weight: 700; font-size: clamp(20px, 3vw, 28px); color: var(--ink); margin-bottom: 28px; }
+p { font-size: 15px; color: #374151; line-height: 1.95; margin-bottom: 16px; }
+
+/* STEPS */
+.step-grid { display: flex; flex-direction: column; gap: 0; }
+.step { display: grid; grid-template-columns: 52px 1fr; gap: 20px; border-bottom: 1px solid var(--border); padding: 24px 0; align-items: start; }
+.step-badge { width: 36px; height: 36px; background: var(--accent); color: #fff; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.step h3 { font-family: 'Noto Serif JP', serif; font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+.step p { font-size: 14px; color: var(--muted); margin: 0; }
+
+/* TOOL CARDS */
+.tools { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
+.tool { background: var(--card); border: 1px solid var(--border); padding: 22px; border-top: 3px solid var(--accent); transition: box-shadow 0.2s, transform 0.2s; }
+.tool:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+.tool-name { font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.tool-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0 0 12px; }
+.tool-price { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--success); }
+
+/* CASES */
+.case-list { display: flex; flex-direction: column; gap: 14px; }
+.case { background: var(--card); border: 1px solid var(--border); padding: 20px 24px; display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: start; }
+.case h3 { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.case-meta { display: flex; gap: 16px; flex-wrap: wrap; }
+.case-meta span { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted); }
+.case-price-box { text-align: right; flex-shrink: 0; }
+.case-price { font-family: 'IBM Plex Mono', monospace; font-size: 18px; font-weight: 700; color: var(--accent); white-space: nowrap; }
+.case-note { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+/* FAQ */
+.faq { display: flex; flex-direction: column; }
+.faq-item { border-bottom: 1px solid var(--border); padding: 20px 0; }
+.faq-q { font-size: 15px; font-weight: 700; color: var(--ink); display: flex; gap: 12px; margin-bottom: 10px; }
+.faq-q::before { content: 'Q.'; font-family: 'IBM Plex Mono', monospace; color: var(--accent); flex-shrink: 0; }
+.faq-a { font-size: 14px; color: var(--muted); padding-left: 30px; margin: 0; line-height: 1.85; }
+
+.back-section { text-align: center; padding: 56px 0; border-top: 1px solid var(--border); }
+.btn { display: inline-block; background: var(--accent); color: #fff; font-family: 'IBM Plex Mono', monospace; font-size: 13px; padding: 14px 36px; text-decoration: none; letter-spacing: 0.08em; transition: background 0.2s; }
+.btn:hover { background: #1d4ed8; }
+
+@media (max-width: 600px) { .topbar, .hero, .content { padding-left: 20px; padding-right: 20px; } .case { grid-template-columns: 1fr; } }
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+.hero > * { animation: fadeUp 0.6s ease both; }
+.hero > *:nth-child(2){animation-delay:0.1s} .hero > *:nth-child(3){animation-delay:0.2s} .hero > *:nth-child(4){animation-delay:0.3s}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-left">METHOD 04 — CHATBOT</span>
+  <a href="ai_fukugyou_article.html" class="back-link">← メイン記事に戻る</a>
+</div>
+
+<section class="hero">
+  <div class="terminal">
+    <span class="cmd">$ ai-bot --create --client="飲食店A様"</span><br>
+    <span class="out">✓ FAQデータ読み込み完了</span><br>
+    <span class="out">✓ チャットボット生成完了</span><br>
+    <span class="out">✓ 納品完了 → 報酬: ¥80,000</span>
+  </div>
+  <h1>AIチャットボット<br><em>構築</em>副業ガイド</h1>
+  <p class="hero-sub">「ノーコード」でも月30万円超えも狙える高単価副業。企業のDX需要は今後も拡大が続きます。</p>
+  <div class="chip-row">
+    <span class="chip chip-blue">月収¥50K〜¥300K</span>
+    <span class="chip chip-purple">難易度 ★★☆</span>
+    <span class="chip chip-green">継続収入あり</span>
+  </div>
+</section>
+
+<main class="content">
+  <section>
+    <div class="sec-tag">STEPS</div>
+    <h2>始め方ステップ</h2>
+    <div class="step-grid">
+      <div class="step">
+        <div class="step-badge">01</div>
+        <div>
+          <h3>Difyで無料チャットボットを作ってみる</h3>
+          <p>Difyはノーコードでチャットボットを構築できる最強ツール。無料で使えて、自分のFAQをアップロードするだけでボットが完成します。まず自分用の「料理レシピBot」などを作って仕組みを体感しましょう。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-badge">02</div>
+        <div>
+          <h3>提案できる業種・用途を絞る</h3>
+          <p>飲食店の予約FAQ・不動産の物件案内・ECサイトの注文サポートなど、ターゲット業種を決めると提案が具体的になります。自分が詳しい業界から始めると成約しやすいです。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-badge">03</div>
+        <div>
+          <h3>デモボットを作って営業資料にする</h3>
+          <p>「御社向けFAQボットのデモです」と実際に動くボットを見せることが最大の営業ツール。5分で体験できるデモURLを添付したメール営業が効果的です。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-badge">04</div>
+        <div>
+          <h3>保守・運用サポートで継続収入を得る</h3>
+          <p>納品後も「月1万円でFAQの更新・改善サポート」を提案すると継続収入が生まれます。10社で月10万円の安定収入になります。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-tag">TOOLS</div>
+    <h2>おすすめツール</h2>
+    <div class="tools">
+      <div class="tool">
+        <div class="tool-name">Dify</div>
+        <div class="tool-desc">ノーコードでRAGボット構築。自社データを学習させたカスタムボットが数時間で完成。</div>
+        <div class="tool-price">FREE / Proプランあり</div>
+      </div>
+      <div class="tool">
+        <div class="tool-name">ChatGPT API</div>
+        <div class="tool-desc">カスタムGPTやAPIでフルカスタムボット構築。コードが少し書ければ自由度が大幅に上がる。</div>
+        <div class="tool-price">従量課金（安価）</div>
+      </div>
+      <div class="tool">
+        <div class="tool-name">LINE Bot（Messaging API）</div>
+        <div class="tool-desc">日本企業向けに最適。AIとLINEを連携させた顧客対応ボットは需要が非常に高い。</div>
+        <div class="tool-price">無料〜従量課金</div>
+      </div>
+      <div class="tool">
+        <div class="tool-name">Make（旧Integromat）</div>
+        <div class="tool-desc">ノーコード自動化ツール。各種SaaSとAIを連携させたワークフロー構築に必須。</div>
+        <div class="tool-price">FREE / $9〜/月</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-tag">CASES</div>
+    <h2>実際の案件例・単価</h2>
+    <div class="case-list">
+      <div class="case">
+        <div><h3>💬 飲食店向けFAQボット（予約・メニュー案内）</h3><div class="case-meta"><span>作業：8〜16時間</span><span>難易度：★★☆</span></div></div>
+        <div class="case-price-box"><div class="case-price">¥50,000〜¥100,000</div><div class="case-note">+保守¥10,000/月</div></div>
+      </div>
+      <div class="case">
+        <div><h3>🏢 社内ナレッジベースBot（人事・総務FAQ）</h3><div class="case-meta"><span>作業：16〜30時間</span><span>難易度：★★★</span></div></div>
+        <div class="case-price-box"><div class="case-price">¥100,000〜¥300,000</div><div class="case-note">+保守¥30,000/月</div></div>
+      </div>
+      <div class="case">
+        <div><h3>🛒 EC向けカスタマーサポートBot</h3><div class="case-meta"><span>作業：10〜20時間</span><span>難易度：★★☆</span></div></div>
+        <div class="case-price-box"><div class="case-price">¥80,000〜¥200,000</div><div class="case-note">+保守¥20,000/月</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-tag">FAQ</div>
+    <h2>よくある質問</h2>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-q">プログラミング知識がなくても作れますか？</div>
+        <div class="faq-a">Difyを使えばプログラミング不要で構築できます。ただし、より高単価を狙うためにPythonの基礎やAPIの概念を学ぶと仕事の幅が大きく広がります。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">どうやってクライアントを見つけますか？</div>
+        <div class="faq-a">地元の中小企業への飛び込み提案・ランサーズでの案件応募・X（Twitter）での発信が効果的です。特にLINE Bot需要は地方の飲食店・美容院でも高まっています。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">納品後のサポートはどうするんですか？</div>
+        <div class="faq-a">月1回のFAQ内容更新と動作確認で月1〜3万円のサポート料を得られます。保守契約を結ぶことで安定収入の柱になります。</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="back-section">
+    <a href="ai_fukugyou_article.html" class="btn">← メイン記事に戻る</a>
+  </div>
+</main>
+</body>
+</html>

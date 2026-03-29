@@ -805,10 +805,27 @@
   <div class="cta-block">
     <h2>まず今日、一歩踏み出そう</h2>
     <p>完璧な準備ができてから始めようと思っていると、いつまでも始まりません。今日できることは「無料ツールに登録すること」だけで十分です。</p>
-    <a class="cta-btn" href="#">無料ツールで今すぐ始める →</a>
+    <a class="cta-btn" href="ai-writing.html">無料ツールで今すぐ始める →</a>
   </div>
 
 </main>
 
 </body>
 </html>
+<script>
+// カードをリンク先ページへ誘導
+const cardLinks = [
+  'ai-writing.html',
+  'ai-image.html',
+  'ai-video.html',
+  'ai-chatbot.html',
+  'ai-translation.html',
+  'ai-consulting.html'
+];
+document.querySelectorAll('.card').forEach((card, i) => {
+  if (cardLinks[i]) {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => { window.location.href = cardLinks[i]; });
+  }
+});
+</script>

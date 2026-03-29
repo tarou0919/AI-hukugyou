@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI翻訳・ローカライズ副業 完全ガイド</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:wght@700;900&family=DM+Mono&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f0f4ef;
+  --ink: #1c2b1a;
+  --accent: #2d6a3f;
+  --accent2: #b8730a;
+  --muted: #5a6b58;
+  --border: #d1dccf;
+  --card: #ffffff;
+  --highlight: #e8f5e4;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--ink); font-family: 'Noto Sans JP', sans-serif; line-height: 1.8; overflow-x: hidden; }
+
+/* HEADER */
+.site-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 80vh;
+}
+.header-left {
+  background: var(--accent);
+  color: #fff;
+  padding: 64px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+.header-left::before {
+  content: '翻訳';
+  position: absolute;
+  top: -20px; left: -10px;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 200px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.05);
+  line-height: 1;
+  pointer-events: none;
+}
+.back-link { font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.6); text-decoration: none; letter-spacing: 0.1em; display: inline-flex; align-items: center; gap: 8px; margin-bottom: auto; padding-top: 0; transition: color 0.2s; }
+.back-link:hover { color: #fff; }
+.method-tag { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: rgba(255,255,255,0.6); text-transform: uppercase; margin-bottom: 16px; }
+h1 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(32px, 5vw, 56px); line-height: 1.1; margin-bottom: 20px; }
+h1 span { display: block; font-size: 0.55em; font-weight: 700; color: rgba(255,255,255,0.7); font-family: 'Noto Serif JP', serif; }
+.header-sub { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.85; }
+.header-right {
+  background: var(--ink);
+  padding: 64px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+}
+.stat-item { border-left: 3px solid var(--accent); padding-left: 20px; }
+.stat-val { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: #fff; line-height: 1; }
+.stat-lbl { font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; margin-top: 4px; }
+
+/* CONTENT */
+.content { max-width: 880px; margin: 0 auto; padding: 72px 48px; }
+section { margin-bottom: 72px; }
+.sec-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; border-left: 3px solid var(--accent); padding-left: 12px; margin-bottom: 20px; }
+h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(22px, 3.5vw, 32px); color: var(--ink); margin-bottom: 28px; }
+p { font-size: 15px; color: #3d4e3b; line-height: 1.95; margin-bottom: 16px; }
+
+/* STEPS */
+.step-list { display: flex; flex-direction: column; gap: 0; }
+.step-item { display: grid; grid-template-columns: 60px 1fr; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--border); align-items: start; }
+.step-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: var(--border); line-height: 1.1; }
+.step-content h3 { font-family: 'Noto Serif JP', serif; font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+.step-content p { font-size: 14px; color: var(--muted); margin: 0; }
+
+/* TOOLS */
+.tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+.tool-card { background: var(--card); border: 1px solid var(--border); padding: 20px; border-bottom: 3px solid var(--accent); transition: transform 0.2s, box-shadow 0.2s; }
+.tool-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+.tool-nm { font-family: 'DM Mono', monospace; font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.tool-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0 0 10px; }
+.tool-cost { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent2); }
+
+/* CASES */
+.case-wrap { display: flex; flex-direction: column; gap: 14px; }
+.case-row { background: var(--highlight); border: 1px solid var(--border); padding: 20px 24px; display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; }
+.case-row h3 { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.case-row-meta { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); display: flex; gap: 16px; flex-wrap: wrap; }
+.price { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--accent); white-space: nowrap; }
+
+/* FAQ */
+.faq { display: flex; flex-direction: column; }
+.faq-item { border-bottom: 1px solid var(--border); padding: 20px 0; }
+.faq-q { font-size: 15px; font-weight: 700; color: var(--ink); display: flex; gap: 10px; margin-bottom: 10px; }
+.faq-q::before { content: 'Q.'; font-family: 'DM Mono', monospace; color: var(--accent); flex-shrink: 0; }
+.faq-a { font-size: 14px; color: var(--muted); padding-left: 28px; margin: 0; }
+
+.back-section { text-align: center; padding: 56px 0; border-top: 1px solid var(--border); }
+.btn { display: inline-block; background: var(--accent); color: #fff; font-family: 'DM Mono', monospace; font-size: 13px; padding: 14px 36px; text-decoration: none; letter-spacing: 0.08em; transition: background 0.2s; }
+.btn:hover { background: #1e4d2c; }
+
+@media (max-width: 700px) {
+  .site-header { grid-template-columns: 1fr; min-height: auto; }
+  .header-right { padding: 40px 20px; flex-direction: row; flex-wrap: wrap; gap: 24px; }
+  .header-left { padding: 40px 20px; min-height: 60vw; }
+  .content { padding-left: 20px; padding-right: 20px; }
+  .case-row { grid-template-columns: 1fr; }
+}
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+.header-left > * { animation: fadeUp 0.6s ease both; }
+.header-left > *:nth-child(2){animation-delay:0.05s} .header-left > *:nth-child(3){animation-delay:0.1s} .header-left > *:nth-child(4){animation-delay:0.15s} .header-left > *:nth-child(5){animation-delay:0.2s}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-left">
+    <a href="ai_fukugyou_article.html" class="back-link">← メイン記事に戻る</a>
+    <div class="method-tag">METHOD 05 — TRANSLATION</div>
+    <h1>AI翻訳・<br>ローカライズ<span>副業完全ガイド</span></h1>
+    <p class="header-sub">DeepLやChatGPTで翻訳し、人間が磨く。語学力がある人に最もおすすめの副業です。</p>
+  </div>
+  <div class="header-right">
+    <div class="stat-item"><div class="stat-val">¥20K〜</div><div class="stat-lbl">月収目安</div></div>
+    <div class="stat-item"><div class="stat-val">即日</div><div class="stat-lbl">開始可能</div></div>
+    <div class="stat-item"><div class="stat-val">★☆☆</div><div class="stat-lbl">難易度</div></div>
+  </div>
+</header>
+
+<main class="content">
+  <section>
+    <div class="sec-label">HOW TO START</div>
+    <h2>始め方ステップ</h2>
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h3>DeepL＋ChatGPTで翻訳フローを作る</h3>
+          <p>DeepLで素早く下訳し、ChatGPTで文体・文化的ニュアンスを調整、最後に自分で確認するという3ステップが基本です。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h3>得意な分野・言語ペアを決める</h3>
+          <p>英日・日英だけでなく、中日・韓日も需要が高いです。技術・医療・法律・ゲームなど専門ジャンルに特化すると単価が2〜4倍になります。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h3>クラウドソーシングとエージェントに登録</h3>
+          <p>クラウドワークス・翻訳家向けのエージェント（フェローズ・アークコミュニケーションズなど）に登録して仕事を受注しましょう。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <h3>スピードと品質で差別化する</h3>
+          <p>AIを使えば人間の翻訳者の5〜10倍速く納品できます。「急ぎ対応可・品質保証」を武器にすると高単価のリピーター顧客が増えます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label">TOOLS</div>
+    <h2>おすすめツール</h2>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <div class="tool-nm">DeepL</div>
+        <div class="tool-desc">精度No.1の翻訳AI。ニュアンスの自然さが群を抜いており、下訳に最適。</div>
+        <div class="tool-cost">FREE / Pro ¥1,000/月〜</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-nm">ChatGPT / Claude</div>
+        <div class="tool-desc">文化的ニュアンス調整・文体統一に強い。「マーケティング向けに自然にして」などの指示が効く。</div>
+        <div class="tool-cost">FREE / 有料プランあり</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-nm">Matecat</div>
+        <div class="tool-desc">プロ翻訳者向けのCAT（翻訳支援）ツール。用語集管理と翻訳メモリで品質と速度が向上。</div>
+        <div class="tool-cost">FREE</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-nm">Phrase / Lokalise</div>
+        <div class="tool-desc">ゲーム・アプリのローカライズプロジェクト管理に特化。大型案件で活躍。</div>
+        <div class="tool-cost">有料（企業向け）</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label">CASES</div>
+    <h2>実際の案件例・単価</h2>
+    <div class="case-wrap">
+      <div class="case-row">
+        <div><h3>📄 一般文書（契約書・マニュアル）</h3><div class="case-row-meta"><span>単位：1文字¥3〜¥8</span><span>難易度：★☆☆</span></div></div>
+        <div class="price">¥10,000〜/件</div>
+      </div>
+      <div class="case-row">
+        <div><h3>🌐 Webサイト・ランディングページ</h3><div class="case-row-meta"><span>単位：1ページ</span><span>難易度：★★☆</span></div></div>
+        <div class="price">¥20,000〜¥80,000</div>
+      </div>
+      <div class="case-row">
+        <div><h3>🎮 ゲームローカライズ</h3><div class="case-row-meta"><span>文字数次第</span><span>難易度：★★★</span></div></div>
+        <div class="price">¥50,000〜¥300,000</div>
+      </div>
+      <div class="case-row">
+        <div><h3>⚕️ 医療・製薬系文書（専門特化）</h3><div class="case-row-meta"><span>1文字¥15〜¥30</span><span>難易度：★★★</span></div></div>
+        <div class="price">¥50,000〜/件</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label">FAQ</div>
+    <h2>よくある質問</h2>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-q">TOEIC何点くらいから始められますか？</div>
+        <div class="faq-a">一般文書ならTOEIC730点程度から始められます。ただしスコアより「正確に読み取り自然な日本語にする力」が重要です。AIが訳した文章のおかしさに気づける力が最低限必要です。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">AIだけで翻訳して納品してもいいですか？</div>
+        <div class="faq-a">品質リスクがあります。特に専門文書や法的拘束力のある文書はAIの誤訳が問題になります。必ず人間がチェック・修正してから納品しましょう。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">英語以外の言語でも需要はありますか？</div>
+        <div class="faq-a">中国語（日中・中日）・韓国語（日韓・韓日）は非常に需要が高く、できる人が少ないため単価も高めです。英語より競合が少ない点も魅力です。</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="back-section">
+    <a href="ai_fukugyou_article.html" class="btn">← メイン記事に戻る</a>
+  </div>
+</main>
+</body>
+</html>

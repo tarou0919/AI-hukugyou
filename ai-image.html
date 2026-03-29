@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI画像生成副業 完全ガイド</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Syne:wght@700;800&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf7f2;
+  --ink: #1a1209;
+  --accent: #e8430a;
+  --accent2: #7c3aed;
+  --muted: #7a6e62;
+  --border: #e0d8cc;
+  --card-bg: #fff;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--ink); font-family: 'Noto Sans JP', sans-serif; line-height: 1.8; overflow-x: hidden; }
+
+/* HERO */
+.hero {
+  background: var(--ink);
+  color: #faf7f2;
+  padding: 60px 48px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; right: -60px;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,67,10,0.3), transparent 70%);
+  pointer-events: none;
+}
+.back-link { font-family: 'Space Mono', monospace; font-size: 12px; color: rgba(255,255,255,0.5); text-decoration: none; letter-spacing: 0.1em; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 48px; transition: color 0.2s; }
+.back-link:hover { color: var(--accent); }
+.num-label { font-family: 'Space Mono', monospace; font-size: 72px; font-weight: 400; color: rgba(255,255,255,0.06); line-height: 1; margin-bottom: -20px; display: block; }
+h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(36px, 7vw, 80px); line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 24px; }
+h1 em { color: var(--accent); font-style: normal; }
+.hero-sub { font-size: 16px; color: rgba(255,255,255,0.6); max-width: 500px; margin-bottom: 48px; }
+.badges { display: flex; gap: 12px; flex-wrap: wrap; }
+.badge { font-family: 'Space Mono', monospace; font-size: 11px; padding: 6px 14px; letter-spacing: 0.08em; }
+.badge-green { background: rgba(0,200,120,0.15); color: #00c878; border: 1px solid rgba(0,200,120,0.3); }
+.badge-orange { background: rgba(232,67,10,0.15); color: var(--accent); border: 1px solid rgba(232,67,10,0.3); }
+.badge-purple { background: rgba(124,58,237,0.15); color: #a78bfa; border: 1px solid rgba(124,58,237,0.3); }
+
+/* CONTENT */
+.content { max-width: 880px; margin: 0 auto; padding: 72px 48px; }
+section { margin-bottom: 72px; }
+.sec-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; }
+h2 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: clamp(22px, 3.5vw, 32px); color: var(--ink); margin-bottom: 28px; }
+p { font-size: 15px; color: #4a4035; line-height: 1.95; margin-bottom: 16px; }
+hr { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+
+/* STEPS */
+.step-wrap { display: flex; flex-direction: column; gap: 0; }
+.step { display: flex; gap: 24px; padding: 28px 0; border-bottom: 1px dashed var(--border); align-items: flex-start; }
+.step-circle { width: 40px; height: 40px; border-radius: 50%; background: var(--accent); color: #fff; font-family: 'Space Mono', monospace; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.step-body h3 { font-family: 'Noto Serif JP', serif; font-weight: 700; font-size: 17px; color: var(--ink); margin-bottom: 8px; }
+.step-body p { font-size: 14px; margin: 0; color: var(--muted); }
+
+/* TOOL GRID */
+.tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.tool { background: var(--card-bg); border: 1.5px solid var(--border); padding: 20px; transition: border-color 0.2s, transform 0.2s; }
+.tool:hover { border-color: var(--accent); transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--accent); }
+.tool-icon { font-size: 24px; margin-bottom: 10px; display: block; }
+.tool-name { font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.tool-desc { font-size: 12px; color: var(--muted); line-height: 1.6; margin: 0 0 10px; }
+.tool-fee { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--accent2); }
+
+/* CASE TABLE */
+.case-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.case-table th { background: var(--ink); color: #faf7f2; padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-align: left; }
+.case-table td { padding: 14px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.case-table tr:hover td { background: rgba(232,67,10,0.04); }
+.price { font-family: 'Space Mono', monospace; font-weight: 700; color: var(--accent); }
+
+/* FAQ */
+.faq-list { display: flex; flex-direction: column; gap: 0; }
+.faq-item { padding: 20px 0; border-bottom: 1px solid var(--border); }
+.faq-q { font-weight: 700; font-size: 15px; color: var(--ink); display: flex; gap: 10px; margin-bottom: 10px; }
+.faq-q span { color: var(--accent); font-family: 'Space Mono', monospace; flex-shrink: 0; }
+.faq-a { font-size: 14px; color: var(--muted); padding-left: 26px; line-height: 1.85; }
+
+.back-section { text-align: center; padding: 48px 0; border-top: 1px solid var(--border); }
+.btn { display: inline-block; background: var(--ink); color: var(--bg); font-family: 'Space Mono', monospace; font-size: 13px; padding: 14px 36px; text-decoration: none; letter-spacing: 0.08em; transition: background 0.2s; }
+.btn:hover { background: var(--accent); }
+
+@media (max-width: 600px) { .hero, .content { padding-left: 20px; padding-right: 20px; } }
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+.hero > * { animation: fadeUp 0.6s ease both; }
+.hero > *:nth-child(2) { animation-delay:0.1s; }
+.hero > *:nth-child(3) { animation-delay:0.2s; }
+.hero > *:nth-child(4) { animation-delay:0.3s; }
+</style>
+</head>
+<body>
+<section class="hero">
+  <a href="ai_fukugyou_article.html" class="back-link">← メイン記事に戻る</a>
+  <span class="num-label">02</span>
+  <h1>AI<em>画像生成</em><br>副業ガイド</h1>
+  <p class="hero-sub">デザインの知識ゼロでもOK。テキストを打ち込むだけで商用利用できるプロ品質の画像が生まれる時代です。</p>
+  <div class="badges">
+    <span class="badge badge-green">月収¥20K〜¥80K</span>
+    <span class="badge badge-orange">初期費用ほぼゼロ</span>
+    <span class="badge badge-purple">難易度 ★☆☆</span>
+  </div>
+</section>
+
+<main class="content">
+  <section>
+    <div class="sec-label">01 — HOW TO START</div>
+    <h2>始め方ステップ</h2>
+    <div class="step-wrap">
+      <div class="step">
+        <div class="step-circle">1</div>
+        <div class="step-body">
+          <h3>Canva AIまたはAdobe Fireflyで無料体験</h3>
+          <p>まず無料ツールから。Canva AIはブラウザで動き、SNS用バナーや素材をすぐに作れます。Firefly（Adobe）も高品質で商用利用可能。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-circle">2</div>
+        <div class="step-body">
+          <h3>プロンプト（呪文）を研究する</h3>
+          <p>「style, lighting, composition」の3要素を英語で指定するだけで品質が激変。PromptHeroやcivitai.comで人気プロンプトを参考にしましょう。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-circle">3</div>
+        <div class="step-body">
+          <h3>販売プラットフォームに登録</h3>
+          <p>PIXTA・Shutterstockに生成画像を投稿して受動収入を得るか、ストアカ・ランサーズでオーダーメイド制作を受注しましょう。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-circle">4</div>
+        <div class="step-body">
+          <h3>ニッチジャンルに特化する</h3>
+          <p>「和風ファンタジー」「ミニマルビジネスアイコン」など特化すると競合が減り単価が上がります。自分の得意スタイルを作りましょう。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label">02 — TOOLS</div>
+    <h2>おすすめツール</h2>
+    <div class="tool-grid">
+      <div class="tool">
+        <span class="tool-icon">🎨</span>
+        <div class="tool-name">Midjourney</div>
+        <div class="tool-desc">品質No.1。商業レベルのイラストが生成可能。Discordで操作。</div>
+        <div class="tool-fee">$10〜/月</div>
+      </div>
+      <div class="tool">
+        <span class="tool-icon">🖌️</span>
+        <div class="tool-name">Adobe Firefly</div>
+        <div class="tool-desc">商用利用に強く安心。CCと連携してデザインに即組み込める。</div>
+        <div class="tool-fee">FREE / CC込み</div>
+      </div>
+      <div class="tool">
+        <span class="tool-icon">✏️</span>
+        <div class="tool-name">Canva AI</div>
+        <div class="tool-desc">初心者最適。デザイン編集も一体化で完成品まで仕上げられる。</div>
+        <div class="tool-fee">FREE / Pro ¥1,500/月</div>
+      </div>
+      <div class="tool">
+        <span class="tool-icon">⚙️</span>
+        <div class="tool-name">Stable Diffusion</div>
+        <div class="tool-desc">無料・ローカル動作可能。カスタマイズ性が高く上級者向け。</div>
+        <div class="tool-fee">完全無料（自前GPU）</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label">03 — CASES</div>
+    <h2>実際の案件例・単価</h2>
+    <table class="case-table">
+      <thead>
+        <tr><th>案件</th><th>単価</th><th>作業時間</th><th>難易度</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>SNSアイコン・バナー制作</td><td class="price">¥3,000〜¥10,000</td><td>30分〜1時間</td><td>★☆☆</td></tr>
+        <tr><td>ストック素材販売（1枚）</td><td class="price">¥50〜¥500/枚</td><td>5〜10分</td><td>★☆☆</td></tr>
+        <tr><td>書籍・電子書籍の表紙</td><td class="price">¥10,000〜¥30,000</td><td>2〜4時間</td><td>★★☆</td></tr>
+        <tr><td>ゲーム・VTuberキャラクター</td><td class="price">¥20,000〜¥100,000</td><td>4〜8時間</td><td>★★★</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <div class="sec-label">04 — FAQ</div>
+    <h2>よくある質問</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q"><span>Q.</span>AI画像は著作権的に問題ないですか？</div>
+        <div class="faq-a">ツールによって異なります。Midjourney有料版・Adobe Fireflyは商用利用OKですが、規約を必ず確認してください。他者の画像を学習させた場合は注意が必要です。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>Q.</span>絵が描けなくても稼げますか？</div>
+        <div class="faq-a">描けなくても全く問題ありません。大切なのは「どんな絵が売れるか」の市場感覚とプロンプト力です。PIXTAで売れ筋を調べるところから始めましょう。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>Q.</span>ストック販売は本当に稼げますか？</div>
+        <div class="faq-a">1枚の単価は低いですが、一度投稿すれば永続的に収益が発生します。目安は1,000枚で月¥10,000〜¥30,000の受動収入。数より質と継続が鍵です。</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="back-section">
+    <a href="ai_fukugyou_article.html" class="btn">← メイン記事に戻る</a>
+  </div>
+</main>
+</body>
+</html>

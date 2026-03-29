@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIコンサルティング副業 完全ガイド</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:wght@600;700&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fdfcf8;
+  --ink: #1a1714;
+  --gold: #b8922a;
+  --gold-light: #f5e6c0;
+  --muted: #72685e;
+  --border: #e8e0d0;
+  --surface: #f5f0e8;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--ink); font-family: 'Noto Sans JP', sans-serif; line-height: 1.8; overflow-x: hidden; }
+
+/* HERO — elegant full-width layout */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  min-height: 100vh;
+  max-height: 800px;
+}
+.hero-main {
+  padding: 56px 64px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+}
+.back-link { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--muted); text-decoration: none; letter-spacing: 0.1em; display: inline-flex; align-items: center; gap: 8px; margin-bottom: auto; transition: color 0.2s; }
+.back-link:hover { color: var(--gold); }
+.method-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; }
+h1 { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: clamp(44px, 6vw, 80px); line-height: 1.05; letter-spacing: -0.01em; margin-bottom: 24px; }
+h1 .accent { color: var(--gold); }
+.hero-desc { font-size: 16px; color: var(--muted); max-width: 480px; line-height: 1.9; margin-bottom: 40px; }
+.income-bar { background: var(--gold-light); border-left: 4px solid var(--gold); padding: 16px 20px; max-width: 400px; }
+.income-bar-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; margin-bottom: 4px; }
+.income-bar-val { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 700; color: var(--ink); }
+.hero-side {
+  background: var(--ink);
+  padding: 56px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  justify-content: center;
+}
+.side-stat { display: flex; flex-direction: column; gap: 6px; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.side-stat:last-child { border-bottom: none; padding-bottom: 0; }
+.side-val { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 700; color: #fff; line-height: 1; }
+.side-lbl { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: rgba(255,255,255,0.4); }
+.side-note { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 4px; }
+
+/* CONTENT */
+.content { max-width: 960px; margin: 0 auto; padding: 80px 64px; }
+section { margin-bottom: 80px; }
+.sec-ornament { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+.sec-ornament::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
+.sec-ornament-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; }
+.sec-ornament::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 4vw, 40px); font-weight: 700; color: var(--ink); margin-bottom: 28px; letter-spacing: -0.01em; }
+p { font-size: 15px; color: #3d3730; line-height: 1.95; margin-bottom: 16px; }
+
+/* STEPS */
+.steps { display: flex; flex-direction: column; gap: 0; }
+.step-row { display: grid; grid-template-columns: 48px 1fr; gap: 24px; padding: 28px 0; border-bottom: 1px solid var(--border); align-items: start; }
+.step-num { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 600; color: var(--gold-light); line-height: 1; }
+.step-body h3 { font-family: 'Noto Serif JP', serif; font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+.step-body p { font-size: 14px; color: var(--muted); margin: 0; }
+
+/* TOOLS */
+.tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 16px; }
+.tool-card { background: var(--surface); border: 1px solid var(--border); padding: 20px; transition: border-color 0.2s; }
+.tool-card:hover { border-color: var(--gold); }
+.tool-nm { font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.tool-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0 0 10px; }
+.tool-cost { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--gold); }
+
+/* CASES */
+.case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.case-card { background: var(--surface); border: 1px solid var(--border); padding: 24px; border-top: 3px solid var(--gold); }
+.case-title { font-family: 'Noto Serif JP', serif; font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 12px; }
+.case-price { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: var(--gold); margin-bottom: 8px; }
+.case-meta { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--muted); line-height: 1.8; }
+
+/* FAQ */
+.faq { display: flex; flex-direction: column; }
+.faq-item { border-bottom: 1px solid var(--border); padding: 22px 0; }
+.faq-q { font-size: 15px; font-weight: 700; color: var(--ink); display: flex; gap: 12px; margin-bottom: 10px; }
+.faq-q::before { content: 'Q.'; font-family: 'Space Mono', monospace; color: var(--gold); flex-shrink: 0; }
+.faq-a { font-size: 14px; color: var(--muted); padding-left: 30px; margin: 0; line-height: 1.85; }
+
+.back-section { text-align: center; padding: 60px 0; border-top: 1px solid var(--border); }
+.btn { display: inline-block; background: var(--ink); color: var(--bg); font-family: 'Space Mono', monospace; font-size: 13px; padding: 14px 40px; text-decoration: none; letter-spacing: 0.08em; border: 1px solid var(--ink); transition: all 0.2s; }
+.btn:hover { background: var(--gold); border-color: var(--gold); color: #fff; }
+
+@media (max-width: 700px) {
+  .hero { grid-template-columns: 1fr; max-height: none; }
+  .hero-side { flex-direction: row; flex-wrap: wrap; gap: 20px; padding: 40px 20px; }
+  .side-stat { border-bottom: none; padding-bottom: 0; }
+  .hero-main { padding: 40px 20px; min-height: auto; }
+  .content { padding: 60px 20px; }
+  .case-grid { grid-template-columns: 1fr; }
+}
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+.hero-main > * { animation: fadeUp 0.65s ease both; }
+.hero-main > *:nth-child(2){animation-delay:0.1s} .hero-main > *:nth-child(3){animation-delay:0.2s} .hero-main > *:nth-child(4){animation-delay:0.3s} .hero-main > *:nth-child(5){animation-delay:0.4s}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-main">
+    <a href="ai_fukugyou_article.html" class="back-link">← メイン記事に戻る</a>
+    <div class="method-label">METHOD 06 — CONSULTING</div>
+    <h1>AIコンサル<br><span class="accent">ティング</span><br>副業ガイド</h1>
+    <p class="hero-desc">あなたの業界知識×AIの知識が最強の武器になる。専門性こそが他の副業と差をつける源泉です。</p>
+    <div class="income-bar">
+      <div class="income-bar-label">月収上限目安</div>
+      <div class="income-bar-val">¥100,000〜¥500,000+</div>
+    </div>
+  </div>
+  <div class="hero-side">
+    <div class="side-stat">
+      <div class="side-val">★★☆</div>
+      <div class="side-lbl">DIFFICULTY</div>
+      <div class="side-note">業界知識があれば難しくない</div>
+    </div>
+    <div class="side-stat">
+      <div class="side-val">高単価</div>
+      <div class="side-lbl">PRICE RANGE</div>
+      <div class="side-note">1時間¥10,000〜¥50,000も可</div>
+    </div>
+    <div class="side-stat">
+      <div class="side-val">継続</div>
+      <div class="side-lbl">CONTRACT TYPE</div>
+      <div class="side-note">顧問契約で月次収入が安定</div>
+    </div>
+  </div>
+</header>
+
+<main class="content">
+  <section>
+    <div class="sec-ornament"><span class="sec-ornament-label">STEPS</span></div>
+    <h2>始め方ステップ</h2>
+    <div class="steps">
+      <div class="step-row">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <h3>自分の「業界×AI」の組み合わせを見つける</h3>
+          <p>前職・現職・趣味の知識とAIを掛け合わせます。「飲食業×AI」「医療事務×AI」「不動産×AI」など、あなただけの専門性が最大の差別化になります。</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <h3>AI活用の「Before/After」事例を作る</h3>
+          <p>「AIを使う前は〇〇時間かかっていた業務が△分で終わった」という具体的な事例を3〜5個用意します。数字で示すことがコンサルの価値を証明します。</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <h3>SNS・ブログで知識を無料発信する</h3>
+          <p>X（Twitter）やnoteで「〇〇業界でAIを使った業務効率化」を発信。1,000フォロワーを超えるころには企業から直接相談が来るようになります。</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">04</div>
+        <div class="step-body">
+          <h3>顧問・研修契約に移行する</h3>
+          <p>スポット相談から始め、「月1回2時間の定例ミーティング＋質問し放題」といった顧問プランを提案。月5〜10万円の安定収入の柱になります。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-ornament"><span class="sec-ornament-label">TOOLS</span></div>
+    <h2>おすすめツール</h2>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <div class="tool-nm">ChatGPT / Claude</div>
+        <div class="tool-desc">提案書・業務改善案・研修資料を瞬時に作成。クライアントへの提案の質が劇的に上がる。</div>
+        <div class="tool-cost">FREE / 有料プランあり</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-nm">Notion AI</div>
+        <div class="tool-desc">コンサルレポート・議事録・アクションプランの管理に最適。AIがドキュメント作成を補助。</div>
+        <div class="tool-cost">月¥1,000〜</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-nm">Gamma</div>
+        <div class="tool-desc">AIが提案資料・スライドを自動生成。プレゼン資料作成の時間を90%削減できる。</div>
+        <div class="tool-cost">FREE / Pro $10/月</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-nm">Perplexity AI</div>
+        <div class="tool-desc">最新のAIトレンド情報を瞬時にリサーチ。クライアントへの情報提供の質と速度が上がる。</div>
+        <div class="tool-cost">FREE / Pro $20/月</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-ornament"><span class="sec-ornament-label">CASES</span></div>
+    <h2>実際の案件例・単価</h2>
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-title">🏢 中小企業向けAI活用研修（半日）</div>
+        <div class="case-price">¥50,000〜¥150,000</div>
+        <div class="case-meta">参加者10〜30名<br>準備：8〜16時間<br>難易度：★★☆</div>
+      </div>
+      <div class="case-card">
+        <div class="case-title">📋 AI業務改善コンサル（スポット）</div>
+        <div class="case-price">¥30,000〜¥100,000</div>
+        <div class="case-meta">2〜4時間のヒアリング＋提案書<br>難易度：★★☆</div>
+      </div>
+      <div class="case-card">
+        <div class="case-title">🤝 顧問契約（月次）</div>
+        <div class="case-price">¥50,000〜¥200,000/月</div>
+        <div class="case-meta">月1〜2回のMTG＋チャットサポート<br>難易度：★★★</div>
+      </div>
+      <div class="case-card">
+        <div class="case-title">🎓 AIスキルアップ講座（オンライン）</div>
+        <div class="case-price">¥10,000〜¥50,000/人</div>
+        <div class="case-meta">録画販売も可能で収益が複数回発生<br>難易度：★★★</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-ornament"><span class="sec-ornament-label">FAQ</span></div>
+    <h2>よくある質問</h2>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-q">AIの知識がまだ浅くてもコンサルできますか？</div>
+        <div class="faq-a">「相手より少し詳しい」だけで十分です。ChatGPTを3ヶ月使い込んで業務効率化に成功した経験があれば、同じ業界でAI未導入の企業に十分な価値を提供できます。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">どうやって最初のクライアントを見つけますか？</div>
+        <div class="faq-a">まず知人・前職のつながりから声をかけましょう。「無料でAI活用相談に乗る」と発信するだけで最初の1〜2件は必ず取れます。実績ができてから有料に移行するのがスムーズです。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">業界の専門知識がないと難しいですか？</div>
+        <div class="faq-a">特定業界の知識がなくても、「AIツールの活用全般」「プロンプトエンジニアリング研修」として横断的に提供することも可能です。ただし特化した方が単価と成約率は上がります。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">資格や認定証は必要ですか？</div>
+        <div class="faq-a">不要です。G検定・AWS認定AIなどを取得すると信頼性が上がりますが、実績と発信力の方が重要です。まず成果事例を作り、資格は後から取得するので十分です。</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="back-section">
+    <a href="ai_fukugyou_article.html" class="btn">← メイン記事に戻る</a>
+  </div>
+</main>
+</body>
+</html>
